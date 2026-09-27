@@ -1,0 +1,85 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a, .nav a:visited {
+    text-decoration: none;
+    color: var(--cherry-text);
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.nav a:hover {
+    color: var(--cherry-main);
+}
+
+.login-btn {
+    background-color: var(--cherry-main);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.login-btn:hover {
+    background-color: var(--cherry-dark);
+    transform: translateY(-1px);
+}
+
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--cherry-pink);
+    color: var(--cherry-main);
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    background-color: var(--cherry-main);
+    color: white;
+}
+
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid var(--cherry-main);
+}
+
+.user-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cherry-main);
+  color: white;
+  font-size: 14px;
+}

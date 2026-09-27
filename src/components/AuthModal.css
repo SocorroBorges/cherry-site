@@ -1,0 +1,211 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 12, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.auth-container {
+  position: relative;
+  width: 960px;
+  max-width: 92vw;
+  min-height: 560px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.form-box {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  transition: all 0.6s ease-in-out;
+}
+
+.form-box form {
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-box h1 {
+  color: var(--cherry-dark);
+  margin-bottom: 6px;
+}
+
+.login-box {
+  left: 0;
+  z-index: 2;
+  opacity: 1;
+}
+
+.register-box {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--cherry-main);
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-top: -4px;
+}
+
+.submit-btn {
+  background-color: var(--cherry-main);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--cherry-dark);
+  transform: translateY(-1px);
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 5;
+}
+
+.overlay {
+  background: linear-gradient(135deg, var(--cherry-main), var(--cherry-dark)),
+    url('../assets/login-bg.jpg');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  height: 100%;
+  width: 200%;
+  left: -100%;
+  transform: translateX(0%);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 45px;
+}
+
+.overlay-panel h1 {
+  font-size: 36px;
+  margin-bottom: 4px;
+}
+
+.overlay-panel p {
+  font-size: 25px;
+  margin: 16px 0 26px;
+  line-height: 1.6;
+}
+
+.overlay-left {
+  left: 0;
+}
+
+.overlay-right {
+  right: 0;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1.5px solid white;
+  color: white;
+  padding: 11px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.ghost-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- Estado "Cadastrar" ativo: tudo desliza --- */
+.auth-container.active .login-box {
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.auth-container.active .register-box {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.auth-container.active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.auth-container.active .overlay {
+  transform: translateX(50%);
+}
